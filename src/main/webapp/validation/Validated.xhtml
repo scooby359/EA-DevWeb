@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.PasswordValidationDevelopersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:outputText value="For user #{frontEnd.passwordValidation.userId}, the given password "/>
+            <h:outputText value="matched." rendered="#{frontEnd.passwordValidationResponse.validated}"/>
+            <h:outputText value="did not match." rendered="#{!frontEnd.passwordValidationResponse.validated}"/>
+            <br />
+            <br />
+            <h:form>
+                <h:commandLink action="#{frontEnd.prepareValidation(false)}" value="#{bundle.PasswordValidationLink}"/>
+            </h:form>
+            <br />
+            <h:link outcome="/index" value="#{bundle.EditDevelopersIndexLink}" />
+        </ui:define>
+    </ui:composition>
+</html>
+

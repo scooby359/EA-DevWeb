@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDevelopersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDevelopersLabel_id}"/>
+                    <h:outputText value="#{frontEnd.selected.id}" title="#{bundle.ViewDevelopersTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewDevelopersLabel_userId}"/>
+                    <h:outputText value="#{frontEnd.selected.userId}" title="#{bundle.ViewDevelopersTitle_userId}"/>
+                    <h:outputText value="#{bundle.ViewDevelopersLabel_name}"/>
+                    <h:outputText value="#{frontEnd.selected.name}" title="#{bundle.ViewDevelopersTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewDevelopersLabel_passwordHash}"/>
+                    <h:outputText value="#{frontEnd.selected.passwordHash}" title="#{bundle.ViewDevelopersTitle_passwordHash}"/>
+                    <h:outputText value="#{bundle.ViewDevelopersLabel_salt}"/>
+                    <h:outputText value="#{frontEnd.selected.salt}" title="#{bundle.ViewDevelopersTitle_salt}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{frontEnd.destroy(frontEnd.selected)}" value="#{bundle.ViewDevelopersDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="#{frontEnd.prepareEdit(null)}" value="#{bundle.ViewDevelopersEditLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="#{frontEnd.prepareCreate}" value="#{bundle.ViewDevelopersCreateLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{frontEnd.prepareList}" value="#{bundle.ViewDevelopersShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDevelopersIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

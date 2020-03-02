@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDevelopersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDevelopersLabel_userId}" for="userId" />
+                    <h:inputText readonly="true" id="userId" value="#{frontEnd.newDeveloper.userId}" title="#{bundle.EditDevelopersTitle_userId}" required="true" requiredMessage="#{bundle.EditDevelopersRequiredMessage_userId}"/>
+                    <h:outputLabel value="#{bundle.EditDevelopersLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{frontEnd.newDeveloper.name}" title="#{bundle.EditDevelopersTitle_name}" required="true" requiredMessage="#{bundle.EditDevelopersRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditDevelopersLabel_password}" for="password" />
+                    <h:inputSecret id="password" value="#{frontEnd.newDeveloper.password}" title="#{bundle.EditDevelopersTitle_password}" required="true" requiredMessage="#{bundle.EditDevelopersRequiredMessage_password}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{frontEnd.update()}" value="#{bundle.EditDevelopersSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDevelopersViewLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="#{frontEnd.prepareList}" value="#{bundle.EditDevelopersShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDevelopersIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
